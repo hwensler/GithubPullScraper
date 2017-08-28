@@ -100,9 +100,9 @@ function sendGetRequest(url){
 
             //iterate over each entry in the body
             content.forEach(function(content){
-                //let fileName = content.filename;
-                //let fileURL = content.raw_url;
-                //console.log("File name: " + fileName + "\nFile URL: " + fileURL);
+                let fileName = content.filename;
+                let fileURL = content.raw_url;
+                console.log("File name: " + fileName + "\nFile URL: " + fileURL);
                 console.log(body);
             })
         } else{
