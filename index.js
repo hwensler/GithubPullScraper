@@ -73,8 +73,26 @@ function pullEventReceived(event) {
         let url = "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/pulls/" + pullNumber + "files";
         console.log("New pull request opened by " + event.pull_request.user.login + "! ");
         console.log("Repo Owner: " + repoOwner + "\nRepo Name: " + repoName + "\nPull Number: " + pullNumber + "\nGet URL: " + url);
+
+        //send get request for more information
+        sendGetRequest(url);
+
     }
 }
 
+function sendGetRequest(url){
+    request.get(url, options, function (err, res, body){
+        if(err){
+            console.log("ERROR: " + err);
+        }
+        if(res.statucCode != 200){
+            console.log("This was not a valid GET request.");
+        }
+        else{
+            console.log("RES:\n" + res);
+            console.log("BODY:\n" + body);
+        }
+    })
 
+}
 
