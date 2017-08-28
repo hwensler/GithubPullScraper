@@ -68,9 +68,11 @@ function pullEventReceived(event) {
 
     //only if this event opens a pull request
     if (event.action == 'opened'){
+        let repoOwner = event.repository.owner.login;
+        let repoName = event.repository.name;
+        let pullNumber = event.number;
         console.log("New pull request opened by " + event.pull_request.user.login + "! ");
-        console.log("Pull number: " + event.number);
-        console.log("Pull ID: " + event.pull_request.id);
+        console.log("Repo Owner: " + repoOwner + "\n Repo Name: " + repoName + "\n Pull Number: " + pullNumber);
     }
 }
 
