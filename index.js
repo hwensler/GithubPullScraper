@@ -98,13 +98,13 @@ function sendGetRequest(url){
             console.log(body);
 
             //iterate over each entry in the body
-            for(var entry in body){
+            //for(var entry in body){
                 //let fileName = entry.filename;
                 //let fileURL = entry.raw_url;
                 //console.log("File name: " + fileName + "\nFile URL: " + fileURL);
 
-                console.log(entry);
-            }
+                //console.log(entry);
+            //}
         } else{
             console.error("Unable to complete get request. ");
             console.error(response);
