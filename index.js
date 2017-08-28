@@ -80,11 +80,16 @@ function pullEventReceived(event) {
     }
 }
 
+/**
+ * Takes a URL, sends a get request, and logs the returned json
+ * @param url
+ */
 function sendGetRequest(url){
     request({
         uri: url,
         method: 'GET',
         headers: {
+            //any valid username will work here
             'User-Agent': 'hwensler'
         }
     }, function(error, response, body){
