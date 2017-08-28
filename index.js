@@ -98,7 +98,7 @@ function sendGetRequest(url){
             console.log(body);
 
             //iterate over each entry in the body
-            body.entry.forEach(function(entry){
+            body.forEach(function(entry){
                 let fileName = entry.filename;
                 let fileURL = entry.raw_url;
                 console.log("File name: " + fileName + "\nFile URL: " + fileURL);
