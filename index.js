@@ -103,7 +103,7 @@ function sendGetRequest(url){
                 let fileName = content.filename;
                 let fileURL = content.raw_url;
                 console.log("File name: " + fileName + "\nFile URL: " + fileURL);
-                console.log(body);
+                console.log("File name: " + fileName + "\nFile URL: " + fileURL);
             })
         } else{
             console.error("Unable to complete get request. ");
