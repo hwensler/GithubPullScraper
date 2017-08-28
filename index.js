@@ -96,14 +96,14 @@ function sendGetRequest(url){
         if (!error && response.statusCode ==200){
             console.log("Got information about pull request files! ");
             console.log(body);
-            let content = body;
+            let content = JSON.stringify(body);
 
             //iterate over each entry in the body
             content.forEach(function(content){
-                let fileName = content.filename;
-                let fileURL = content.raw_url;
-                console.log("File name: " + fileName + "\nFile URL: " + fileURL);
-
+                //let fileName = content.filename;
+                //let fileURL = content.raw_url;
+                //console.log("File name: " + fileName + "\nFile URL: " + fileURL);
+                console.log(body);
             })
         } else{
             console.error("Unable to complete get request. ");
