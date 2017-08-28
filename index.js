@@ -81,18 +81,20 @@ function pullEventReceived(event) {
 }
 
 function sendGetRequest(url){
-    request.get(url, options, function (err, res, body){
-        if(err){
-            console.log("ERROR: " + err);
+    request({
+        uri: 'url',
+        method: 'GET'
+    }, function(error, response, body){
+        if (!error && response.statusCode ==200){
+            console.log("Got information about pull request files! ");
+            console.log(body);
+        } else{
+            console.error("Unable to complete get request. ");
+            console.error(response);
+            console.error(error);
         }
-        if(res.statucCode != 200){
-            console.log("This was not a valid GET request.");
-        }
-        else{
-            console.log("RES:\n" + res);
-            console.log("BODY:\n" + body);
-        }
-    })
+
+    });
 
 }
 
