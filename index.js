@@ -83,7 +83,10 @@ function pullEventReceived(event) {
 function sendGetRequest(url){
     request({
         uri: url,
-        method: 'GET'
+        method: 'GET',
+        headers: {
+            'User-Agent': 'hwensler'
+        }
     }, function(error, response, body){
         if (!error && response.statusCode ==200){
             console.log("Got information about pull request files! ");
