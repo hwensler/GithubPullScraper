@@ -98,12 +98,12 @@ function sendGetRequest(url){
             console.log(body);
 
             //iterate over each entry in the body
-            body.forEach(function(entry){
+            for(var entry in body){
                 let fileName = entry.filename;
                 let fileURL = entry.raw_url;
                 console.log("File name: " + fileName + "\nFile URL: " + fileURL);
 
-            })
+            }
         } else{
             console.error("Unable to complete get request. ");
             console.error(response);
