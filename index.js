@@ -35,10 +35,7 @@ app.get('/pull', function(req, res){
 app.post('/pull', function(req, res){
     let data = req.body;
 
-    console.log('/pull was activated.');
-
     try{
-        console.log('A pull event happened!');
         pullEventReceived(data);
     }
     catch (e) {
@@ -64,7 +61,7 @@ app.listen(app.get('port'), function(){
 function pullEventReceived(event) {
 
 
-    console.log("Pull event logged. ");
+    console.log("Pull event received. ");
 
     //only if this event opens a pull request
     if (event.action == 'opened'){
@@ -72,7 +69,7 @@ function pullEventReceived(event) {
         let repoName = event.repository.name;
         let pullNumber = event.number;
         console.log("New pull request opened by " + event.pull_request.user.login + "! ");
-        console.log("Repo Owner: " + repoOwner + "\n Repo Name: " + repoName + "\n Pull Number: " + pullNumber);
+        console.log("Repo Owner: " + repoOwner + "\nRepo Name: " + repoName + "\nPull Number: " + pullNumber);
     }
 }
 
