@@ -96,11 +96,12 @@ function sendGetRequest(url){
         if (!error && response.statusCode ==200){
             console.log("Got information about pull request files! ");
             console.log(body);
+            let content = body;
 
             //iterate over each entry in the body
-            body.forEach(function(body){
-                let fileName = body.filename;
-                let fileURL = body.raw_url;
+            content.forEach(function(content){
+                let fileName = content.filename;
+                let fileURL = content.raw_url;
                 console.log("File name: " + fileName + "\nFile URL: " + fileURL);
 
             })
