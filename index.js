@@ -82,7 +82,7 @@ function pullEventReceived(event) {
 
 function sendGetRequest(url){
     request({
-        uri: 'url',
+        uri: url,
         method: 'GET'
     }, function(error, response, body){
         if (!error && response.statusCode ==200){
