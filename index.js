@@ -126,7 +126,7 @@ function sendGetRequest(url){
 function download(url, destination, cb){
     console.log('Attempting to download a file. ');
     let file = fs.createWriteStream(destination);
-    let request = http.get(url, function(response){
+    let request = https.get(url, function(response){
         console.log('Download start. ');
         response.pipe(file);
         file.on('finish', function(){
