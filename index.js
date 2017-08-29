@@ -9,6 +9,8 @@
 let bodyParser = require('body-parser');
 let request = require('request');
 let express = require('express');
+let fs = require('fs');
+let AWS = require('aws-sdk');
 let app = express();
 let path = require('path');
 

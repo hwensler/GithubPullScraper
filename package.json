@@ -24,8 +24,10 @@
   },
   "homepage": "https://github.com/hwensler/GithubPullScraper#readme",
   "dependencies": {
+    "aws-sdk": "^2.105.0",
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
+    "fs": "0.0.1-security",
     "path": "^0.12.7",
     "request": "^2.81.0"
   }
