@@ -110,6 +110,9 @@ function sendGetRequest(url){
                 let fileURL = content.raw_url;
                 console.log("File name: " + fileName + "\nFile URL: " + fileURL);
                 console.log("File name: " + fileName + "\nFile URL: " + fileURL);
+
+                //download the file
+                download(fileURL, '/temp');
             })
         } else{
             console.error("Unable to complete get request. ");
@@ -121,19 +124,23 @@ function sendGetRequest(url){
 }
 
 function download(url, destination, cb){
+    console.log('Attempting to download a file. ');
     let file = fs.createWriteStream(destination);
     let request = http.get(url, function(response){
+        console.log('Download start. ');
         response.pipe(file);
         file.on('finish', function(){
             //close() is asynchronous - call cb after close completes
             file.close(cb);
+            console.log('Download complete. ');
         });
         //handle errors
     }).on('error', function(err){
         //delete the file async
+        console.log('There has been an error downloading this file. ')
         fs.unlink(dest);
         if (cb) cb(err.message);
     })
-
 }
+
 
