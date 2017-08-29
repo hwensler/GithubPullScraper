@@ -112,7 +112,7 @@ function sendGetRequest(url){
                 console.log("File name: " + fileName + "\nFile URL: " + fileURL);
 
                 //download the file
-                download(fileURL, '/temp');
+                download(fileURL, 'https://githubpullscraper.herokuapp.com/temp');
             })
         } else{
             console.error("Unable to complete get request. ");
@@ -137,7 +137,7 @@ function download(url, destination, cb){
         //handle errors
     }).on('error', function(err){
         //delete the file async
-        console.log('There has been an error downloading this file. ')
+        console.log('There has been an error downloading this file. ');
         fs.unlink(dest);
         if (cb) cb(err.message);
     })
