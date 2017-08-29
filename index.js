@@ -14,6 +14,11 @@ let AWS = require('aws-sdk');
 let app = express();
 let path = require('path');
 
+//heroku enviroment variables
+const key = process.env.AWS_ACCESS_KEY;
+const secretKey = process.env.AWS_SECRET_ACCESS_KEY;
+const bucket = process.env.S3_BUCKET;
+
 //set ports - environment variable OR localhost 5000
 app.set('port', (process.env.PORT || 5000));
 
