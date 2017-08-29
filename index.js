@@ -11,7 +11,7 @@ let request = require('request');
 let express = require('express');
 let fs = require('fs');
 let AWS = require('aws-sdk');
-let http = require('http');
+let https = require('https');
 let app = express();
 let path = require('path');
 
