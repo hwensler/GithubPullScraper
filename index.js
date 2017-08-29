@@ -11,6 +11,7 @@ let request = require('request');
 let express = require('express');
 let fs = require('fs');
 let AWS = require('aws-sdk');
+let http = require('http');
 let app = express();
 let path = require('path');
 
@@ -117,6 +118,22 @@ function sendGetRequest(url){
         }
 
     });
+}
+
+function download(url, destination, cb){
+    let file = fs.createWriteStream(destination);
+    let request = http.get(url, function(response){
+        response.pipe(file);
+        file.on('finish', function(){
+            //close() is asynchronous - call cb after close completes
+            file.close(cb);
+        });
+        //handle errors
+    }).on('error', function(err){
+        //delete the file async
+        fs.unlink(dest);
+        if (cb) cb(err.message);
+    })
 
 }
 
