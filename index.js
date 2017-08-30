@@ -78,7 +78,7 @@ function pullEventReceived(event) {
         let pullNumber = event.number;
         let openURL = "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/pulls/" + pullNumber + "/files";
         console.log("New pull request opened by " + event.pull_request.user.login + "! ");
-        console.log("Repo Owner: " + repoOwner + "\nRepo Name: " + repoName + "\nPull Number: " + pullNumber + "\nGet URL: " + url);
+        console.log("Repo Owner: " + repoOwner + "\nRepo Name: " + repoName + "\nPull Number: " + pullNumber + "\nGet URL: " + openURL);
 
         //send get request for more information
         sendGetRequest(openURL);
