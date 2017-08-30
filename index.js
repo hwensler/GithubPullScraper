@@ -120,8 +120,8 @@ function sendGetRequest(url){
 
                 //upload the file
                 let s3object = new AWS.S3({params: {Bucket: bucket, Key: key}});
+                console.log("Attempting to upload a file to s3. ");
                 s3object.upload({Body: file})
-                    console.log("Attempting to upload a file to s3. ");
                     .on('httpUploadProgress', function(evt){
                         console.log(evt);
                     })
