@@ -110,7 +110,9 @@ function sendGetRequest(url){
                 let fileURL = content.raw_url;
                 console.log("File name: " + fileName + "\nFile URL: " + fileURL);
                 console.log("File name: " + fileName + "\nFile URL: " + fileURL);
-                
+
+                //stream the file
+                let file = fs.createReadStream(url).pipe();
             })
         } else{
             console.error("Unable to complete get request. ");
