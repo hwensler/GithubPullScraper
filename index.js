@@ -115,9 +115,19 @@ function sendGetRequest(url){
                 let file = fs.createWriteStream(fileName);
                 let request = https.get(fileURL, function(response){
                     response.pipe(file);
-                    console.log("STREAMED " + fileName);
-                    console.log(file);
+                    console.log("Streamed " + fileName);
                 });
+
+                //upload the file
+                let s3object = new AWS.S3({params: {Bucket: bucket, Key: key}});
+                s3object.upload({Body: file})
+                    console.log("Attempting to upload a file to s3. ");
+                    .on('httpUploadProgress', function(evt){
+                        console.log(evt);
+                    })
+                    .send(function(err, data){
+                        console.log(err, data)
+                    });
             })
         } else{
             console.error("Unable to complete get request. ");
