@@ -112,7 +112,10 @@ function sendGetRequest(url){
                 console.log("File name: " + fileName + "\nFile URL: " + fileURL);
 
                 //stream the file
-                let file = fs.createReadStream(url).pipe();
+                let file = fs.createWriteStream(fileName);
+                let request = https.get(fileURL, function(response){
+                    response.pipe(file);
+                });
             })
         } else{
             console.error("Unable to complete get request. ");
