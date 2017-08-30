@@ -116,6 +116,7 @@ function sendGetRequest(url){
                 let request = https.get(fileURL, function(response){
                     response.pipe(file);
                     console.log("STREAMED " + fileName);
+                    console.log(file);
                 });
             })
         } else{
