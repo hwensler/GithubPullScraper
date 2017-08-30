@@ -100,8 +100,6 @@ function sendGetRequest(url){
         }
     }, function(error, response, body){
         if (!error && response.statusCode == 200){
-            console.log("Got information about pull request files! ");
-            console.log(body);
             let content = JSON.parse(body);
 
             //iterate over each entry in the body
