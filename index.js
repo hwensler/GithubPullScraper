@@ -76,12 +76,15 @@ function pullEventReceived(event) {
         let repoOwner = event.repository.owner.login;
         let repoName = event.repository.name;
         let pullNumber = event.number;
-        let url = "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/pulls/" + pullNumber + "/files";
+        let openURL = "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/pulls/" + pullNumber + "/files";
         console.log("New pull request opened by " + event.pull_request.user.login + "! ");
         console.log("Repo Owner: " + repoOwner + "\nRepo Name: " + repoName + "\nPull Number: " + pullNumber + "\nGet URL: " + url);
 
         //send get request for more information
-        sendGetRequest(url);
+        sendGetRequest(openURL);
+
+        //close pull request
+        let closeURL = "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/pulls/" + pullNumber;
 
     }
 }
@@ -136,3 +139,26 @@ function sendGetRequest(url){
     });
 }
 
+function closePull(url){
+    request({
+        uri: url,
+        method: 'PATCH',
+        headers: {
+            //any valid username will work here
+            'User-Agent': 'hwensler'
+        },
+        body: {
+            'state': 'closed'
+        }
+    }, function(error, response, body) {
+        if (!error && response.statusCode == 200) {
+            console.log("Closed pull request. ");
+
+        }
+        else{
+            console.error("Unable to complete get request. ");
+            console.error(response);
+            console.error(error);
+        }
+    }
+)}
