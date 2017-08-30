@@ -115,6 +115,7 @@ function sendGetRequest(url){
                 let file = fs.createWriteStream(fileName);
                 let request = https.get(fileURL, function(response){
                     response.pipe(file);
+                    console.log("STREAMED " + fileName);
                 });
             })
         } else{
