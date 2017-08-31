@@ -116,23 +116,23 @@ function sendGetRequest(url){
                 console.log("File name: " + fileName + "\nFile URL: " + fileURL);
                 console.log("File name: " + fileName + "\nFile URL: " + fileURL);
 
-                //stream the file
-                let file = fs.createWriteStream(fileName);
-                let request = https.get(fileURL, function(response){
-                    response.pipe(file);
-                    console.log("Streamed " + fileName);
-                });
+                // //stream the file
+                // let file = fs.createWriteStream(fileName);
+                // let request = https.get(fileURL, function(response){
+                //     response.pipe(file);
+                //     console.log("Streamed " + fileName);
+                // });
 
-                //upload the file
-                let s3object = new AWS.S3({params: {Bucket: bucket, Key: key}});
-                console.log("Attempting to upload a file to s3. ");
-                s3object.upload({Body: file})
-                    .on('httpUploadProgress', function(evt){
-                        console.log(evt);
-                    })
-                    .send(function(err, data){
-                        console.log(err, data)
-                    });
+                // //upload the file
+                // let s3object = new AWS.S3({params: {Bucket: bucket, Key: key}});
+                // console.log("Attempting to upload a file to s3. ");
+                // s3object.upload({Body: file})
+                //     .on('httpUploadProgress', function(evt){
+                //         console.log(evt);
+                //     })
+                //     .send(function(err, data){
+                //         console.log(err, data)
+                //     });
             })
         } else{
             console.error("Unable to complete get request. ");
