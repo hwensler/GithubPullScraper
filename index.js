@@ -89,7 +89,23 @@ function pullEventReceived(event) {
 
         //close pull request
         let closeURL = "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/pulls/" + pullNumber;
-        closePull(closeURL);
+
+        //TODO replace - just trying postman code raw
+
+        var options = { method: 'PATCH',
+            url: closeURL,
+            headers:
+                { 'postman-token': '6035eb7c-c5d1-7213-73e8-3a9e4f304b91',
+                    'cache-control': 'no-cache',
+                    authorization: oAuthToken},
+            body: '{\r\n  "state": "close"\r\n}' };
+
+        request(options, function (error, response, body) {
+            if (error) throw new Error(error);
+
+            console.log(body);
+        });
+        //closePull(closeURL);
     }
 }
 
