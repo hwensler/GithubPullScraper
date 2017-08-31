@@ -149,6 +149,7 @@ function closePull(url){
         uri: url,
         method: 'PATCH',
         headers: {
+            'User-Agent': 'hwensler'
             'Authorization': oAuthToken
         },
         body: '{\r\n  ' +
