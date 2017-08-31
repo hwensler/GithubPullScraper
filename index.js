@@ -144,6 +144,7 @@ function sendGetRequest(url){
 }
 
 function closePull(url){
+    console.log("Attempting to close a pull. ");
     request({
         uri: url,
         method: 'PATCH',
