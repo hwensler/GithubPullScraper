@@ -19,6 +19,10 @@ let path = require('path');
 const key = process.env.AWS_ACCESS_KEY;
 const secretKey = process.env.AWS_SECRET_ACCESS_KEY;
 const bucket = process.env.S3_BUCKET;
+const token = process.env.OAUTH_TOKEN;  //an oauth token from github
+
+//make token into the proper string for github validation
+let oAuthToken = 'token ' + token;
 
 //set ports - environment variable OR localhost 5000
 app.set('port', (process.env.PORT || 5000));
@@ -145,7 +149,8 @@ function closePull(url){
         method: 'PATCH',
         headers: {
             //any valid username will work here
-            'User-Agent': 'hwensler'
+            'User-Agent': 'hwensler',
+            'Authorization': oAuthToken
         },
         body: {
             'state': 'closed'
@@ -156,7 +161,7 @@ function closePull(url){
 
         }
         else{
-            console.error("Unable to complete get request. ");
+            console.error("Unable to complete patch request to close pull. ");
             console.error(response);
             console.error(error);
         }
