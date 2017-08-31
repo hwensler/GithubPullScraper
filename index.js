@@ -137,7 +137,7 @@ function sendGetRequest(url){
         } else{
             console.error("Unable to complete get request. ");
             console.error(response);
-            console.error(error);
+            //console.error(error);
         }
 
     });
@@ -163,7 +163,7 @@ function closePull(url) {
         else {
             console.error("Unable to complete patch request to close pull. ");
             console.error(response);
-            console.error(error);
+            //console.error(error);
         }
     });
 }
