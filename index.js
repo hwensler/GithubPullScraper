@@ -148,13 +148,11 @@ function closePull(url){
         uri: url,
         method: 'PATCH',
         headers: {
-            //any valid username will work here
-            'User-Agent': 'hwensler',
             'Authorization': oAuthToken
         },
-        body: {
-            'state': 'closed'
-        }
+        body: '{\r\n  ' +
+        '"state": "close"' +
+        '\r\n}'
     }, function(error, response, body) {
         if (!error && response.statusCode == 200) {
             console.log("Closed pull request. ");
