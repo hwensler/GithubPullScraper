@@ -143,27 +143,28 @@ function sendGetRequest(url){
     });
 }
 
-function closePull(url){
+function closePull(url) {
     console.log("Attempting to close a pull. ");
-    request({
-        uri: url,
+
+    var options = {
         method: 'PATCH',
-        headers: {
-            'User-Agent': 'hwensler'
-            'Authorization': oAuthToken
-        },
-        body: '{\r\n  ' +
-        '"state": "close"' +
-        '\r\n}'
-    }, function(error, response, body) {
+        url: url,
+        headers:
+            {
+                authoriation: oAuthToken
+            },
+        body: '{\r\n  "state": "close"\r\n}'
+    };
+
+    request(options, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             console.log("Closed pull request. ");
-
         }
-        else{
+        else {
             console.error("Unable to complete patch request to close pull. ");
             console.error(response);
             console.error(error);
         }
-    }
-)}
+    });
+}
+
