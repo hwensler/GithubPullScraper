@@ -87,7 +87,7 @@ function pullEventReceived(event) {
         //close pull request
         let closeURL = "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/pulls/" + pullNumber;
 
-        //closePull(closeURL);
+        closePull(closeURL);
     }
 }
 
