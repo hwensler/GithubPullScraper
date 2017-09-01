@@ -124,7 +124,8 @@ function sendGetRequest(url){
     }, function(error, response, body){
         if (!error && response.statusCode == 200){
             let content = JSON.parse(body);
-            console.log(content);
+
+            let count = 0;
 
             //iterate over each entry in the body
             content.forEach(function(content){
@@ -132,6 +133,8 @@ function sendGetRequest(url){
                 let fileURL = content.raw_url;
                 console.log("File name: " + fileName + "\nFile URL: " + fileURL);
                 console.log("File name: " + fileName + "\nFile URL: " + fileURL);
+                console.log("COUNT: " + count);
+                count++;
 
                 // //stream the file
                 // let file = fs.createWriteStream(fileName);
