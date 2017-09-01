@@ -72,9 +72,6 @@ app.listen(app.get('port'), function(){
  */
 function pullEventReceived(event) {
 
-
-    console.log("Pull event received. ");
-
     //only if this event opens a pull request
     if (event.action == 'opened'){
         let repoOwner = event.repository.owner.login;
@@ -125,16 +122,12 @@ function sendGetRequest(url){
         if (!error && response.statusCode == 200){
             let content = JSON.parse(body);
 
-            let count = 0;
-
             //iterate over each entry in the body
             content.forEach(function(content){
                 let fileName = content.filename;
                 let fileURL = content.raw_url;
                 console.log("File name: " + fileName + "\nFile URL: " + fileURL);
                 console.log("File name: " + fileName + "\nFile URL: " + fileURL);
-                console.log("COUNT: " + count);
-                count++;
 
                 // //stream the file
                 // let file = fs.createWriteStream(fileName);
