@@ -124,6 +124,7 @@ function sendGetRequest(url){
     }, function(error, response, body){
         if (!error && response.statusCode == 200){
             let content = JSON.parse(body);
+            console.log(content);
 
             //iterate over each entry in the body
             content.forEach(function(content){
