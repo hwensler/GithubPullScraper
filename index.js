@@ -87,7 +87,8 @@ function pullEventReceived(event) {
         //close pull request
         let closeURL = "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/pulls/" + pullNumber;
 
-        closePull(closeURL);
+        //wait five seconds
+        setTimeout(closePull(closeURL), 5000);
     }
 }
 
