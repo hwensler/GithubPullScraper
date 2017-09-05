@@ -152,7 +152,7 @@ function closePull(url) {
         headers:
             {
                 'User-Agent': 'hwensler',
-                'authoriation': oAuthToken
+                authoriation: oAuthToken
             },
         body: '{\r\n  "state": "close"\r\n}'
     };
