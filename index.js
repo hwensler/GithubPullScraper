@@ -160,6 +160,7 @@ function closePull(url) {
     }, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             console.log("Closed pull request. ");
+            console.log(JSON.parse(body));
         }
         else {
             console.error("Unable to complete patch request to close pull. ");
