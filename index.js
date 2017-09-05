@@ -148,7 +148,7 @@ function closePull(url) {
 
     request({
         uri: url,
-        method: 'PATCH',
+        method: 'POST',
         headers: {
             //any valid username will work here
             'User-Agent': 'hwensler',
