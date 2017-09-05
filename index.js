@@ -155,7 +155,7 @@ function closePull(url) {
             authoriation: oAuthToken
         },
         body:
-            '{\r\n"state": "closed"\r\n}'
+            '{"state": "closed"}'
     }, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             console.log("Closed pull request. ");
