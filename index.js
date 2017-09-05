@@ -154,9 +154,8 @@ function closePull(url) {
             'User-Agent': 'hwensler',
             authoriation: oAuthToken
         },
-        body: '{\r\n  "state": "close"\r\n}'
-
-
+        body:
+            '{\r\n  "state": "closed"\r\n}'
     }, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             console.log("Closed pull request. ");
