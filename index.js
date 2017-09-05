@@ -146,27 +146,49 @@ function sendGetRequest(url){
 function closePull(url) {
     console.log("Attempting to close a pull. ");
 
-    var options = {
-        method: 'PATCH',
-        url: url,
-        headers:
-            {
-                'User-Agent': 'hwensler',
-                authoriation: oAuthToken
-            },
+    request({
+        uri: url,
+        method: 'GET',
+        headers: {
+            //any valid username will work here
+            'User-Agent': 'hwensler',
+            authoriation: oAuthToken
+        },
         body: '{\r\n  "state": "close"\r\n}'
-    };
 
-    request(options, function (error, response, body) {
+
+    }, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             console.log("Closed pull request. ");
         }
         else {
             console.error("Unable to complete patch request to close pull. ");
             console.error("Response body: " + response.body);
-            console.error(response.status);
             console.error("Error: " + error);
         }
     });
 }
+
+    // var options = {
+    //     method: 'PATCH',
+    //     url: url,
+    //     headers:
+    //         {
+    //             'User-Agent': 'hwensler',
+    //             authoriation: oAuthToken
+    //         },
+    //     body: '{\r\n  "state": "close"\r\n}'
+    // };
+    //
+    // request(options, function (error, response, body) {
+    //     if (!error && response.statusCode == 200) {
+    //         console.log("Closed pull request. ");
+    //     }
+    //     else {
+    //         console.error("Unable to complete patch request to close pull. ");
+    //         console.error("Response body: " + response.body);
+    //         console.error("Error: " + error);
+    //     }
+    // });
+//}
 
