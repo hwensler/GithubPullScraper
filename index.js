@@ -151,7 +151,7 @@ function closePull(url) {
         method: 'POST',
         headers: {
             //any valid username will work here
-            'User-Agent': 'hwensler',
+            'user-agent': 'hwensler',
             authoriation: oAuthToken
         },
         body:
