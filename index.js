@@ -14,6 +14,7 @@ let AWS = require('aws-sdk');
 let https = require('https');
 let app = express();
 let path = require('path');
+let Promise = require('promise');
 
 //heroku enviroment variables
 const key = process.env.AWS_ACCESS_KEY;
