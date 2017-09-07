@@ -163,7 +163,6 @@ function closePull(url) {
         }
         else {
             console.error("Unable to complete patch request to close pull. ");
-            console.error("Response: " + response);
             console.error("Response body: " + response.body);
             console.error("Error: " + error);
         }
