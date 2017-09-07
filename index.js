@@ -147,7 +147,7 @@ function closePull(url) {
     console.log("Attempting to close a pull. ");
 
     request({
-        uri: url,
+        url: url,
         method: 'PATCH',
         headers: {
             //any valid username will work here
