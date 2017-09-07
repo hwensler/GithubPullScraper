@@ -165,5 +165,6 @@ function closePull(url) {
             console.error("Response body: " + response.body);
             console.error("Error: " + error);
         }
-    }), 5000);
+        //wait 10 seconds
+    }), 10000);
 }
