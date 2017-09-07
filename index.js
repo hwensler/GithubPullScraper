@@ -14,7 +14,6 @@ let AWS = require('aws-sdk');
 let https = require('https');
 let app = express();
 let path = require('path');
-let Promise = require('promise');
 
 //heroku enviroment variables
 const key = process.env.AWS_ACCESS_KEY;
@@ -96,10 +95,6 @@ function pullEventReceived(event) {
     }
 }
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 /**
  * Takes a URL, sends a get request, and logs the returned json
  * @param url
@@ -152,9 +147,6 @@ function sendGetRequest(url){
 
 async function closePull(url) {
     console.log("Attempting to close a pull. ");
-
-    //wait 5 seconds
-    await sleep(5000);
 
     request({
         uri: url,
