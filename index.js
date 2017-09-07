@@ -89,7 +89,7 @@ function pullEventReceived(event) {
         console.log("Close Pull URL: " + closeURL);
 
         //wait five seconds
-        setTimeout(closePull(closeURL), 5000);
+        setTimeout(closePull(closeURL), 3000);
     }
 }
 
