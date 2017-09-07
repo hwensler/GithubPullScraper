@@ -89,8 +89,14 @@ function pullEventReceived(event) {
         console.log("Close Pull URL: " + closeURL);
 
         //wait five seconds
-        setTimeout(closePull(closeURL), 3000);
+        await sleep(5000);
+
+        closePull(closeURL);
     }
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 /**
@@ -143,8 +149,11 @@ function sendGetRequest(url){
     });
 }
 
-function closePull(url) {
+async function closePull(url) {
     console.log("Attempting to close a pull. ");
+
+    //wait 5 seconds
+    await sleep(5000);
 
     request({
         uri: url,
