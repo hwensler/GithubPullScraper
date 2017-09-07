@@ -88,9 +88,6 @@ function pullEventReceived(event) {
         let closeURL = "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/pulls/" + pullNumber;
         console.log("Close Pull URL: " + closeURL);
 
-        //wait five seconds
-        await sleep(5000);
-
         closePull(closeURL);
     }
 }
@@ -148,7 +145,6 @@ function sendGetRequest(url){
 function closePull(url) {
     console.log("Attempting to close a pull. ");
 
-
     request({
         uri: url,
         method: 'PATCH',
@@ -159,7 +155,7 @@ function closePull(url) {
         },
         body:
             '{"state": "closed"}'
-    }, function (error, response, body) {
+    }, setTimeout(function (error, response, body) {
         if (!error && response.statusCode == 200) {
             console.log("Closed pull request. ");
             console.log(JSON.parse(body));
@@ -169,7 +165,7 @@ function closePull(url) {
             console.error("Response body: " + response.body);
             console.error("Error: " + error);
         }
-    });
+    }), 5000);
 }
 
     // var options = {
