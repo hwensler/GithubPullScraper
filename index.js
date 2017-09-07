@@ -145,8 +145,9 @@ function sendGetRequest(url){
     });
 }
 
-async function closePull(url) {
+function closePull(url) {
     console.log("Attempting to close a pull. ");
+
 
     request({
         uri: url,
