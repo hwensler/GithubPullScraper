@@ -89,7 +89,7 @@ function pullEventReceived(event) {
         console.log("Close Pull URL: " + closeURL);
 
         //wait five seconds
-        closePull(closeURL);
+        setTimeout(closePull(closeURL), 5000);
     }
 }
 
@@ -147,7 +147,7 @@ function closePull(url) {
     console.log("Attempting to close a pull. ");
 
     request({
-        url: url,
+        uri: url,
         method: 'PATCH',
         headers: {
             //any valid username will work here
