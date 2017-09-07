@@ -167,27 +167,3 @@ function closePull(url) {
         }
     }), 5000);
 }
-
-    // var options = {
-    //     method: 'PATCH',
-    //     url: url,
-    //     headers:
-    //         {
-    //             'User-Agent': 'hwensler',
-    //             authoriation: oAuthToken
-    //         },
-    //     body: '{\r\n  "state": "close"\r\n}'
-    // };
-    //
-    // request(options, function (error, response, body) {
-    //     if (!error && response.statusCode == 200) {
-    //         console.log("Closed pull request. ");
-    //     }
-    //     else {
-    //         console.error("Unable to complete patch request to close pull. ");
-    //         console.error("Response body: " + response.body);
-    //         console.error("Error: " + error);
-    //     }
-    // });
-//}
-
